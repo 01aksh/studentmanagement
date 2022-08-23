@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/01aksh/studentmanagement.git/static/css/main.4de0fa12.css",
+    "main.js": "/01aksh/studentmanagement.git/static/js/main.79453bc8.js",
+    "static/js/787.d2c3f361.chunk.js": "/01aksh/studentmanagement.git/static/js/787.d2c3f361.chunk.js",
+    "index.html": "/01aksh/studentmanagement.git/index.html",
+    "main.4de0fa12.css.map": "/01aksh/studentmanagement.git/static/css/main.4de0fa12.css.map",
+    "main.79453bc8.js.map": "/01aksh/studentmanagement.git/static/js/main.79453bc8.js.map",
+    "787.d2c3f361.chunk.js.map": "/01aksh/studentmanagement.git/static/js/787.d2c3f361.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4de0fa12.css",
+    "static/js/main.79453bc8.js"
+  ]
+}
