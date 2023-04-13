@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 
 const Table = (props) => {
-  const { rows, columns, handleDelete } = props;
+  const { rows, columns, handleDelete, handleEdit } = props;
 
   return (
     <>
@@ -29,6 +29,9 @@ const Table = (props) => {
                 <td>{row.address}</td>
                 <td>
                   <Button name="Delete" onClick={() => handleDelete(index)} />
+                </td>
+                <td>
+                  <Button name="Edit" onClick={() => handleEdit(index)} />
                 </td>
               </tr>
             );

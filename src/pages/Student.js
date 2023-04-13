@@ -31,10 +31,14 @@ const Student = () => {
   });
   const [studentList, setStudentList] = useState([]);
 
+  const [indexToBeEdit, setIndexToBeEdit] = useState();
+  const [emptyIndex, setEmptyIndex] = useState();
+
   /**
    * Function for handler change
    * @param {event} e
    */
+
   const handlerInputChange = (e) => {
     setStudentObj({
       ...studentObj,
@@ -60,28 +64,52 @@ const Student = () => {
    */
   const handleSubmit = (e) => {
     e.preventDefault();
-    const studentListTemp = [...studentList];
-    const stdObj = {
-      firstName: studentObj.firstName,
-      middleName: studentObj.middleName,
-      lastName: studentObj.lastName,
-      address: studentObj.address,
-      gender: studentObj.gender,
-    };
-    studentListTemp.push(stdObj);
-    setStudentList(studentListTemp);
-    clearState();
+    if (indexToBeEdit >= 0) {
+      studentList[indexToBeEdit].firstName = studentObj.firstName;
+      studentList[indexToBeEdit].middleName = studentObj.middleName;
+      studentList[indexToBeEdit].lastName = studentObj.lastName;
+      studentList[indexToBeEdit].gender = studentObj.gender;
+      studentList[indexToBeEdit].address = studentObj.address;
+      setStudentList([...studentList]);
+      clearState();
+      setIndexToBeEdit(emptyIndex);
+      // edit code
+    } else {
+      // insert new user code
+      const studentListTemp = [...studentList];
+      const stdObj = {
+        firstName: studentObj.firstName,
+        middleName: studentObj.middleName,
+        lastName: studentObj.lastName,
+        address: studentObj.address,
+        gender: studentObj.gender,
+      };
+      studentListTemp.push(stdObj);
+      setStudentList(studentListTemp);
+      clearState();
+    }
+    console.log(indexToBeEdit);
   };
-
+  // //////////////////////////////////////////////////
   // Delete function for DeleteButton
   const handleDelete = (index) => {
     const studentListTemp = [...studentList];
     studentListTemp.splice(index, 1);
     setStudentList(studentListTemp);
   };
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+  // Function For the edit button
+  const handleEdit = (index) => {
+    // get ojbect based on index
+    const editOdj = studentList[index];
+    // take that object and set in studentobj state
+    setStudentObj(editOdj);
+    setIndexToBeEdit(index);
+  };
   return (
     <>
+      {indexToBeEdit >= 0 ? "update" : "insert"}
       <div className="ms-5 me-5">
         <div className="row">
           <div className="col">
@@ -136,6 +164,7 @@ const Student = () => {
           rows={studentList}
           columns={columns}
           handleDelete={(index) => handleDelete(index)}
+          handleEdit={(index) => handleEdit(index)}
         />
       </div>
     </>
