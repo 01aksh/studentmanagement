@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 
-const Table = (props) => {
+const Tablee = (props) => {
   const { rows, columns, handleDelete, handleEdit } = props;
 
   return (
@@ -22,16 +22,14 @@ const Table = (props) => {
           {rows.map((row, index) => {
             return (
               <tr key={index}>
-                <td>{row.firstName}</td>
-                <td>{row.middleName}</td>
-                <td>{row.lastName}</td>
-                <td>{row.gender}</td>
+                <td>{row.name}</td>
                 <td>{row.address}</td>
-                <td>
-                  <Button name="Delete" onClick={() => handleDelete(index)} />
-                </td>
+                <td>{row.age}</td>
                 <td>
                   <Button name="Edit" onClick={() => handleEdit(index)} />
+                </td>
+                <td>
+                  <Button name="Delete" onClick={() => handleDelete(index)} />
                 </td>
               </tr>
             );
@@ -42,4 +40,4 @@ const Table = (props) => {
   );
 };
 
-export default Table;
+export default Tablee;

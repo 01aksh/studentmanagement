@@ -3,7 +3,7 @@ import Button from "../components/Button/Button";
 import DropDown from "../components/DropDown/DropDown";
 // import DropDown from "../components/DropDown/DropDown";
 import Input from "../components/Input/Input";
-import Table from "../components/Table/Table";
+import Tablee from "../components/Table/Tablee";
 import TextArea from "../components/TextArea/TextArea";
 // import TextArea from "../components/TextArea/TextArea";
 
@@ -88,7 +88,6 @@ const Student = () => {
       setStudentList(studentListTemp);
       clearState();
     }
-    console.log(indexToBeEdit);
   };
   // //////////////////////////////////////////////////
   // Delete function for DeleteButton
@@ -160,7 +159,7 @@ const Student = () => {
         </div>
         <br />
         <Button name="Submit" onClick={handleSubmit} />
-        <Table
+        <Tablee
           rows={studentList}
           columns={columns}
           handleDelete={(index) => handleDelete(index)}
